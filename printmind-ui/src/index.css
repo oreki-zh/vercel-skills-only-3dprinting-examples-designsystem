@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Core Neutrals ── */
+  --color-bg-base: #0B0F19;
+  --color-bg-surface: #111827;
+  --color-bg-elevated: #1F2937;
+  --color-bg-hover: #374151;
+
+  --color-border-default: #374151;
+  --color-border-strong: #4B5563;
+
+  /* ── Text ── */
+  --color-text-primary: #F9FAFB;
+  --color-text-secondary: #D1D5DB;
+  --color-text-muted: #9CA3AF;
+  --color-text-disabled: #6B7280;
+
+  /* ── Accent & Semantic ── */
+  --color-accent-cyan: #06B6D4;
+  --color-accent-cyan-glow: rgba(6, 182, 212, 0.25);
+  --color-status-heating: #F97316;
+  --color-status-printing: #22C55E;
+  --color-status-error: #EF4444;
+  --color-status-completed: #8B5CF6;
+  --color-status-idle: #6B7280;
+  --color-status-warning: #EAB308;
+  --color-status-optimizing: #06B6D4;
+  --color-status-paused: #3B82F6;
+
+  /* ── Fonts ── */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg-base);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ── Animations ── */
+@keyframes dot-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes dot-urgent {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  25% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  75% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes spin-dot {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-dot-pulse {
+  animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+.animate-dot-urgent {
+  animation: dot-urgent 0.8s ease-in-out infinite;
+}
+
+.animate-spin-dot {
+  animation: spin-dot 1s linear infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
