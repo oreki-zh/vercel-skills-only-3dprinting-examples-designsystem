@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# system
+.DS_Store
+*.swp
+*.swo
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# agents/skills (local tooling, not part of the design system)
+.agents/
+.agent/
+.junie/
+.gemini/
+skills-lock.json
+
+# artifacts
+*.pyc
+__pycache__/
